@@ -1,0 +1,19 @@
+{
+    "name": "h2/mvp_project",
+    "description": "CRUD MVC",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "H2\\MvpProject\\": "src/",
+            "App\\": "src/",
+            "Database\\": "config/database/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Humberto Viveros",
+            "email": "humberto.viverosrios@gmail.com"
+        }
+    ],
+    "require": {}
+}
