@@ -1,1 +1,5 @@
+# vendor
 /vendor/
+
+# vscode work area
+mvp_project.code-workspace

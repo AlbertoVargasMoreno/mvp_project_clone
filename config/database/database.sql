@@ -20,6 +20,6 @@ CREATE TABLE IF NOT EXISTS `product` (
     `id`            int(5)   unsigned NOT NULL AUTO_INCREMENT,
     `description`   varchar(100)      NOT NULL,
     `category`      varchar(100)      NOT NULL,
-    `enabled`       tinyint(1)        NOT NULL DEFAULT 0,
+    `available`     tinyint(1)        NOT NULL DEFAULT 0,
     PRIMARY KEY (`id`)
 ) ENGINE=InnoDB;
