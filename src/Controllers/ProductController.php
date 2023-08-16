@@ -6,10 +6,12 @@
 
     class ProductController {
 
-        public function indexProduct(){
+        public function index(){
 
             $products = new ProductModel();
-            return $products->indexProduct();
+            $products->indexProduct();
+
+            return view('product');
             
         }
 
