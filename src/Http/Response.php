@@ -18,15 +18,13 @@
         }
         
         public function sendResponse(){
+
             $view = $this->getView();
 
-            // Ej home, se guarda en la variable $content
-            // $content se imprime dentro de la plantilla layout.php
             $content = file_get_contents(viewPath($view));
 
-            // uso de helpers
-            // require __DIR__ . "/../../Views/template.php";
             require viewPath('template');
+
         } 
 
     }

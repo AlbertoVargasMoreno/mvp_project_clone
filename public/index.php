@@ -8,4 +8,3 @@
     $request -> sendRequest();
     
 ?>
-    <!-- <h1>MVP Project</h1> -->

@@ -25,8 +25,8 @@
             $stmt->execute();
 
             $results = $stmt->fetchAll(\PDO::FETCH_ASSOC);
-            return $results;
 
+            return $results;
         }
 
         // Muestra un único recurso especificado

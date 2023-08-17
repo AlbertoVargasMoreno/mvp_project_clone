@@ -9,10 +9,16 @@
         public function index(){
 
             $products = new ProductModel();
-            $products->indexProduct();
+            $results = $products->indexProduct();
 
-            return view('product');
+            // require __DIR__ . "/../Views/product/index.php";
+
+            return view('product/index');
             
+        }
+
+        public function create(){
+            return view('product/create');
         }
 
     }

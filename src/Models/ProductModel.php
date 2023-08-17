@@ -16,7 +16,8 @@
 
             $db = new ModelBase();
             try{
-                $db->index('product');
+                $results = $db->index('product');
+                return $results;
             } catch (\PDOException $e) {
                 echo $e->getMessage();
 		    } finally {
