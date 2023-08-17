@@ -2,6 +2,8 @@
 
     namespace App\Http;
 
+    use App\Http\Response;
+
     class Request {
 
         // Segmentos de la url
@@ -11,8 +13,7 @@
         // Con qué método vamos a responder
         protected $method;
 
-        public function __construct()
-        {
+        public function __construct(){
             $resource = $_GET["resource"] ?? "";
             $resource = explode("/", $resource);
             // site.test/ -> hace referencia a home
@@ -20,6 +21,7 @@
             // site.test/product/index -> hace referencia al método a utilizar
 
             $this->segments = $resource == "" ? "/" : $resource;
+
 
             $this->setController();
             $this->setMethod();
@@ -32,9 +34,10 @@
         }
 
         public function setMethod(){
-            $this->method = empty($this->segments[1])
-                ? 'index'
-                : $this->segments[1];
+            if (empty($this->segments[1]))
+                $this->method = 'index';
+            else
+                $this->method = $this->segments[1];    
         }
 
         public function getController(){
@@ -48,23 +51,24 @@
 
         public function sendRequest(){
 
-            $controller = $this->getController(); // App\Controllers\\ProductController
+            $controller = $this->getController(); // App\Controllers\ProductController
             $method = $this->getMethod(); // index
 
             $response = call_user_func([
                 new $controller,
                 $method
             ]);
-
+            
             try {
 
-                if ($response instanceof Response)
+                if ($response instanceof Response) {
                     $response->sendResponse();
-                else
-                    throw new \Exception("Error Processing Request", 1);                    
+                } else {
+                    throw new \Exception("Error Processing Request", 1); 
+                }
                 
             } catch (\Throwable $e) {
-                echo "Details: {$e->getMessage()}";
+                die (" Details: {$e->getMessage()}");
             }
 
         }
