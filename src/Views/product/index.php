@@ -1,3 +1,12 @@
+<?php
+ 
+use App\Controllers\ProductController;
+
+    $product = new ProductController();
+    $results = $product->index();
+
+?>
+
 <h1>Productos</h1>
 
 <ul>

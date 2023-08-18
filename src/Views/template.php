@@ -6,7 +6,7 @@
     <title>MVP Projecta</title>
 </head>
 <body>
-    <h1>Top</h1>
+    <h3>Template</h3>
     <?= $content; ?>
 </body>
 </html>

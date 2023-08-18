@@ -6,20 +6,27 @@
 
     class ProductController {
 
+        public function viewIndex(){
+            return view('product/index');
+        }
+
+        public function viewCreate(){
+            return view('product/create');
+        }
+
+        public function viewEdit(){
+            return view('product/edit');
+        }
+        
         public function index(){
 
             $products = new ProductModel();
             $results = $products->indexProduct();
-
-            // require __DIR__ . "/../Views/product/index.php";
-
-            return view('product/index');
+            return $results;
             
         }
 
-        public function create(){
-            return view('product/create');
-        }
+        
 
     }
 

@@ -35,7 +35,7 @@
 
         public function setMethod(){
             if (empty($this->segments[1]))
-                $this->method = 'index';
+                $this->method = 'viewIndex';
             else
                 $this->method = $this->segments[1];    
         }

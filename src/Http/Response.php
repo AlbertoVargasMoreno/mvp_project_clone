@@ -20,10 +20,14 @@
         public function sendResponse(){
 
             $view = $this->getView();
+            // $content = file_get_contents(viewPath($view));
+            // require viewPath('template');
 
-            $content = file_get_contents(viewPath($view));
+            ob_start(); // Inicia el almacenamiento en búfer de salida
+            require viewPath($view); // Incluye el archivo de vista y ejecuta el código PHP
+            $content = ob_get_clean(); // Obtiene y limpia el contenido del búfer
+            require viewPath('template'); // Carga y ejecuta la plantilla, con el contenido dinámico en $content
 
-            require viewPath('template');
 
         } 
 
