@@ -3,13 +3,16 @@
     use App\Http\Response;
 
     if (! function_exists('view')) {
-        function view($view){
-            return new Response($view);
+        function view($view, $data){
+            // echo "<pre>";
+            // print_r($view);
+            // print_r($data);
+            return new Response($view, $data);
         }
     }
 
     if (! function_exists('viewPath')) {
-        function viewPath($view){
+        function viewPath($view, $data){
             return __DIR__ . "/Views/$view.php";
         }
     }
