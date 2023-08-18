@@ -8,15 +8,9 @@
         protected $view;
         protected $data = [];
 
-        public function __construct($view, $data)
-        {
-            // Asigna el valor (home, services, contact), que vino como parámetro del controlador, a la propiedad protegida $view
-            $this->view = $view;
-            $this->data = $data;
-
-            // echo "<pre>";
-            // print_r($view);
-            // print_r($data);
+        public function __construct($view, $data){
+            $this->view = $view; // Asigna el valor (home, services, contact)
+            $this->data = $data; // Los datos que vienen de la base de datos o formularios
         }
 
         public function getView(){
@@ -31,13 +25,6 @@
 
             $view = $this->getView();
             $data = $this->getData();
-
-            // echo "<pre>";
-            // print_r($view);
-            // print_r($data);
-
-            // $content = file_get_contents(viewPath($view));
-            // require viewPath('template');
 
             ob_start(); // Inicia el almacenamiento en búfer de salida
             require viewPath($view, $data); // Incluye el archivo de vista y ejecuta el código PHP

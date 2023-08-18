@@ -6,32 +6,18 @@
 
     class ProductController {
 
-        public function viewCreate(){
-            // return view('product/create');
+        public function create(){
+            return view('product/create', null);
         }
 
-        public function viewEdit(){
-            // return view('product/edit');
-        }
-
-        public function index(){
-
-            $products = new ProductModel();
-            $results = $products->indexProduct();
-            return $results;
-            
-        }
-
-        public function getProcessedProducts(){
-            $products = $this->index();
-            return $products;
+        public function edit(){
+            return view('product/edit', null);
         }
         
-        public function viewIndex(){
-            $products = $this->getProcessedProducts();
-            // echo "<pre>";
-            // print_r(['products' => $products]);
-            return view('product/index', ['products' => $products]);
+        public function index(){
+            $products = new ProductModel();
+            $results = $products->indexProduct();
+            return view('product/index', ['products' => $results]);
         }
     }
 
