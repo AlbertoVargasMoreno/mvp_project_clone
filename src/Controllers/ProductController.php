@@ -14,11 +14,12 @@
 
         public function index(){
             $results = $this->product_model->indexProduct();
-            return view('product/index', ['products' => $results]);
+            return view('product/index', ['resources' => $results]);
         }
 
         public function show($id){
             // Página con los detalles de un recurso
+            return view('product/show', null);
         }
 
         public function create(){
