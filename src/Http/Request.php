@@ -12,8 +12,8 @@
         protected $controller;
         // Con qué método vamos a responder
         protected $method;
-        
-        protected $id;
+        // Si un método requiere un id
+        protected $idRequest;
 
         public function __construct(){
             $resource = $_GET["resource"] ?? "";
@@ -21,12 +21,13 @@
             // site.test/ -> hace referencia a home
             // site.test/product -> hace referencia al controlador ProductController
             // site.test/product/index -> hace referencia al método a utilizar
+            // site.test/product/show/1 -> hace referencia al id con cual va a trabajar
 
             $this->segments = $resource == "" ? "/" : $resource;
 
             $this->setController();
             $this->setMethod();
-            $this->setId();
+            $this->setIdRequest();
         }
 
         public function setController(){
@@ -42,11 +43,11 @@
                 $this->method = $this->segments[1]; 
         }
 
-        public function setId(){
+        public function setIdRequest(){
             if (empty($this->segments[2]))
-                $this->id = null;
+                $this->idRequest = null;
             else
-                $this->id = $this->segments[2]; 
+                $this->idRequest = $this->segments[2]; 
         }
 
         public function getController(){
@@ -58,8 +59,8 @@
             return $this->method;
         }
 
-        public function getId(){
-            return $this->id;
+        public function getIdRequest(){
+            return $this->idRequest;
         }
 
         public function sendRequest(){

@@ -8,11 +8,11 @@
     class ProductController {
 
         private $product_model;
-        protected $id;
+        protected $idRequest;
 
         public function __construct() {
             $this->product_model = new ProductModel;
-            $this->id = new Request;
+            $this->idRequest = new Request;
         }
 
         public function index(){
@@ -22,8 +22,8 @@
 
         public function show(){
             // Página con los detalles de un recurso
-            $id = $this->id->getId();
-            $results = $this->product_model->showProduct($id);
+            $idRequest = $this->idRequest->getIdRequest();
+            $results = $this->product_model->showProduct($idRequest);
             return view('product/show', ['resources' => $results]);
         }
 
@@ -31,19 +31,28 @@
             return view('product/create', null);
         }
 
-        public function edit($id){
+        public function edit($idRequest){
             return view('product/edit', null);
         }
 
-        public function store($data){
+        public function store(){
             // Insertar un nuevo recurso
+            $data = array(
+                'description'   => $_POST['description'],
+                'category'      => $_POST['category'],
+                'available'     => $_POST['available']
+            );
+
+            $this->product_model->storeProduct($data);
+            
+            header("location: ../product");
         }
 
-        public function update($data, $id){
+        public function update($data, $idRequest){
             // Actualizar un recurso 
         }
 
-        public function destroy($id){
+        public function destroy($idRequest){
             // Eliminar un recurso
         }
         

@@ -23,3 +23,10 @@ CREATE TABLE IF NOT EXISTS `product` (
     `available`     tinyint(1)        NOT NULL DEFAULT 0,
     PRIMARY KEY (`id`)
 ) ENGINE=InnoDB;
+
+-- Insert data examples
+INSERT INTO `product` (`id`, `description`, `category`, `available`) VALUES
+(1, 'Teclado Quanta QTKTM20', 'Informática', 1),
+(2, 'Mouse Sate A33 Optical', 'Informática', 0),
+(3, 'Speaker Logitech Z150', 'Informática', 0),
+(4, 'Samsung A22 5G', 'Celular', 1);
