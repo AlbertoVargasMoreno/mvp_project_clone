@@ -12,6 +12,8 @@
         protected $controller;
         // Con qué método vamos a responder
         protected $method;
+        
+        protected $id;
 
         public function __construct(){
             $resource = $_GET["resource"] ?? "";
@@ -22,9 +24,9 @@
 
             $this->segments = $resource == "" ? "/" : $resource;
 
-
             $this->setController();
             $this->setMethod();
+            $this->setId();
         }
 
         public function setController(){
@@ -37,7 +39,14 @@
             if (empty($this->segments[1]))
                 $this->method = 'index';
             else
-                $this->method = $this->segments[1];    
+                $this->method = $this->segments[1]; 
+        }
+
+        public function setId(){
+            if (empty($this->segments[2]))
+                $this->id = null;
+            else
+                $this->id = $this->segments[2]; 
         }
 
         public function getController(){
@@ -49,10 +58,14 @@
             return $this->method;
         }
 
+        public function getId(){
+            return $this->id;
+        }
+
         public function sendRequest(){
 
             $controller = $this->getController(); // App\Controllers\ProductController
-            $method = $this->getMethod(); // index
+            $method = $this->getMethod(); // index     show     edit
 
             $response = call_user_func([
                 new $controller,

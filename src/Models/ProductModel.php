@@ -29,7 +29,7 @@
         public function showProduct($id){
             
             try{
-                $this->model_base->show('product', $id);
+                return $this->model_base->show('product', $id);
             } catch (\PDOException $e) {
                 echo $e->getMessage();
 		    }

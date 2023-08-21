@@ -3,13 +3,16 @@
     namespace App\Controllers;
 
     use App\Models\ProductModel;
+    use App\Http\Request;
 
     class ProductController {
 
         private $product_model;
+        protected $id;
 
         public function __construct() {
             $this->product_model = new ProductModel;
+            $this->id = new Request;
         }
 
         public function index(){
@@ -17,9 +20,11 @@
             return view('product/index', ['resources' => $results]);
         }
 
-        public function show($id){
+        public function show(){
             // Página con los detalles de un recurso
-            return view('product/show', null);
+            $id = $this->id->getId();
+            $results = $this->product_model->showProduct($id);
+            return view('product/show', ['resources' => $results]);
         }
 
         public function create(){
