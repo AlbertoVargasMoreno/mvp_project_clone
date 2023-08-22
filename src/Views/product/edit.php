@@ -1,7 +1,7 @@
 <h3>Edit</h3>
 <p>A form for edit an existence resource</p> 
 
-<form action="product" method="post">
+<form action="update" method="post">
 
     <input type="hidden" name="id" value="<?= $data["resources"]["id"] ?>">
 
@@ -21,7 +21,7 @@
     </div>
 
     <div class="button-container">
-        <button class="button-link" type="submit">Save</button>
+        <button class="button-link" type="submit" name="save_button">Save</button>
     </div>
 
 </form>

@@ -3,41 +3,48 @@
     namespace App\Controllers;
 
     use App\Models\ProductModel;
-    use App\Http\Request;
 
     class ProductController {
 
         private $product_model;
-        protected $idRequest;
+        protected $resource_id;
 
         public function __construct() {
             $this->product_model = new ProductModel;
-            $this->idRequest = new Request;
+
+            // $this->set_resource_id();
         }
+
+        // public function set_resource_id(){
+        //     $this->resource_id = $_GET['id'];
+        // }
+
+        // public function get_resource_id(){
+        //     return $this->resource_id;
+        // }
 
         public function index(){
             $results = $this->product_model->indexProduct();
             return view('product/index', ['resources' => $results]);
         }
 
-        public function show(){
-            // Página con los detalles de un recurso
-            $idRequest = $this->idRequest->getIdRequest();
-            $results = $this->product_model->showProduct($idRequest);
-            return view('product/show', ['resources' => $results]);
-        }
-
         public function create(){
             return view('product/create', null);
         }
 
-        public function edit(){
-            $idRequest = $this->idRequest->getIdRequest();
-            $results = $this->product_model->showProduct($idRequest);
+        public function show($id){
+            // Página con los detalles de un recurso
+            echo $id;
+            // $results = $this->product_model->showProduct($id);
+            // return view('product/show', ['resources' => $results]);
+        }
+
+        public function edit($id){
+            $results = $this->product_model->showProduct($id);
             return view('product/edit', ['resources' => $results]);
         }
 
-        public function store(){
+        public function store($data){
 
             if (isset($_POST['available']))
                 $available = 1;
@@ -55,7 +62,7 @@
             header("location: ../product");
         }
 
-        public function product(){
+        public function update($data, $id){
 
             echo "hasta aqui ok";
 
@@ -81,7 +88,7 @@
 
         }
 
-        public function destroy($idRequest){
+        public function destroy($id){
             // Eliminar un recurso
         }
         
