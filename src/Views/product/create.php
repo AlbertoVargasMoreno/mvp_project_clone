@@ -15,10 +15,7 @@
 
     <div class="input-group">
         <label for="available">Available</label>
-        <select name="available" id="available">
-            <option value="0">Disabled</option>
-            <option value="1" selected>Enabled</option>
-        </select>
+        <input type="checkbox" name="available" value="1">
     </div>
 
     <div class="button-container">

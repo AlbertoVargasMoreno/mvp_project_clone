@@ -31,16 +31,23 @@
             return view('product/create', null);
         }
 
-        public function edit($idRequest){
-            return view('product/edit', null);
+        public function edit(){
+            $idRequest = $this->idRequest->getIdRequest();
+            $results = $this->product_model->showProduct($idRequest);
+            return view('product/edit', ['resources' => $results]);
         }
 
         public function store(){
-            // Insertar un nuevo recurso
+
+            if (isset($_POST['available']))
+                $available = 1;
+            else
+                $available = 0;
+
             $data = array(
                 'description'   => $_POST['description'],
                 'category'      => $_POST['category'],
-                'available'     => $_POST['available']
+                'available'     => $available
             );
 
             $this->product_model->storeProduct($data);
@@ -48,8 +55,30 @@
             header("location: ../product");
         }
 
-        public function update($data, $idRequest){
+        public function product(){
+
+            echo "hasta aqui ok";
+
             // Actualizar un recurso 
+            // $id =  $_POST['id'];
+
+            // if (isset($_POST['available']))
+            //     $available = 1;
+            // else
+            //     $available = 0;
+
+            // $data = array(
+            //     'description'   => $_POST['description'],
+            //     'category'      => $_POST['category'],
+            //     'available'     => $available
+            // );
+
+            // print_r($id);
+
+            // $this->product_model->updateProduct($data, $id);
+            
+            // header("location: ../product");
+
         }
 
         public function destroy($idRequest){
