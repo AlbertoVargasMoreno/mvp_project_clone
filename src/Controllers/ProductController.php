@@ -7,25 +7,14 @@
     class ProductController {
 
         private $product_model;
-        protected $resource_id;
 
         public function __construct() {
             $this->product_model = new ProductModel;
-
-            // $this->set_resource_id();
         }
-
-        // public function set_resource_id(){
-        //     $this->resource_id = $_GET['id'];
-        // }
-
-        // public function get_resource_id(){
-        //     return $this->resource_id;
-        // }
 
         public function index(){
             $results = $this->product_model->indexProduct();
-            return view('product/index', ['resources' => $results]);
+            return view('product/index', $results);
         }
 
         public function create(){
@@ -34,14 +23,13 @@
 
         public function show($id){
             // Página con los detalles de un recurso
-            echo $id;
-            // $results = $this->product_model->showProduct($id);
-            // return view('product/show', ['resources' => $results]);
+            $results = $this->product_model->showProduct($id);
+            return view('product/show', $results);
         }
 
         public function edit($id){
             $results = $this->product_model->showProduct($id);
-            return view('product/edit', ['resources' => $results]);
+            return view('product/edit', $results);
         }
 
         public function store($data){
@@ -59,10 +47,10 @@
 
             $this->product_model->storeProduct($data);
             
-            header("location: ../product");
+            header("location: ../product/");
         }
 
-        public function update($data, $id){
+        public function update($data){
 
             echo "hasta aqui ok";
 

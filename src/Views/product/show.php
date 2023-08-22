@@ -2,8 +2,8 @@
 <p>Detail from the resource</p> 
 
 <ul>
-    <li><?= $data["resources"]["id"] ?></li>
-    <li><?= $data["resources"]["description"] ?></li>
-    <li><?= $data["resources"]["category"] ?></li>
-    <li><?= $data["resources"]["available"] ?></li>
+    <li><?= $data["id"] ?></li>
+    <li><?= $data["description"] ?></li>
+    <li><?= $data["category"] ?></li>
+    <li><?= $data["available"] ?></li>
 </ul>
