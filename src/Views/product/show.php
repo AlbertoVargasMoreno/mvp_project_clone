@@ -7,3 +7,5 @@
     <li><?= $data["category"] ?></li>
     <li><?= $data["available"] ?></li>
 </ul>
+
+<a href="../">« Volver</a>

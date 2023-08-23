@@ -47,7 +47,8 @@
         }
 
         // Actualiza un recurso específico en la base de datos
-        public function updateProduct($data, $id){
+        public function updateProduct($data){
+            $id = $data['id'];
             try{
                 $this->model_base->update('product', $data, $id);
             } catch (\PDOException $e) {
