@@ -47,13 +47,14 @@
         }
 
         // Actualiza un recurso específico en la base de datos
-        public function updateProduct($data){
-            $id = $data['id'];
+        public function updateProduct($data, $id){
+
             try{
                 $this->model_base->update('product', $data, $id);
             } catch (\PDOException $e) {
                 echo $e->getMessage();
 		    }
+
         }
 
         // Elimina un recurso específico de la base de datos

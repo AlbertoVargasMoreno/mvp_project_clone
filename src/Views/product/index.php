@@ -7,5 +7,5 @@
     <?php endforeach; ?>
 </ul>
 
-<a href="./create">+ Nuevo producto</a>
+<a href="./create">+ Nuevo producto</a> |
 <a href="../">Home</a>

@@ -1,7 +1,7 @@
 <h3>Edit</h3>
 <p>A form for edit an existence resource</p> 
 
-<form action="update" method="post">
+<form action="../update" method="post">
 
     <input type="hidden" name="id" value="<?= $data["id"] ?>">
 
@@ -25,3 +25,5 @@
     </div>
 
 </form>
+
+<a href="../">« Volver</a>

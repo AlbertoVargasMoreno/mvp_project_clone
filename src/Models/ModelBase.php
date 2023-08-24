@@ -55,13 +55,19 @@
 
         // Actualiza un recurso específico en la base de datos
         public function update($table, $data, $id){
-
+            
             $fields = array_map(function ($key) {
                 return "$key = :$key";
             }, array_keys($data));
 
             $setClause = implode(', ', $fields);
             $sql = "UPDATE $table SET $setClause WHERE id = :id";
+
+            // Agregar el signo de dólar ($) al comienzo de las claves en $data
+            $data = array_combine(array_map(function ($key) {
+                return ":$key";
+            }, array_keys($data)), $data);
+
             $data['id'] = $id;
             $stmt = $this->connection->prepare($sql);
             return $stmt->execute($data);

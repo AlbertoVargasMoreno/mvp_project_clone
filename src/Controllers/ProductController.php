@@ -52,27 +52,22 @@
 
         public function update($data){
 
-            echo "hasta aqui ok";
+            $id = $_POST['id'];
 
-            // Actualizar un recurso 
-            // $id =  $_POST['id'];
+            if (isset($_POST['available']))
+                $available = 1;
+            else
+                $available = 0;
 
-            // if (isset($_POST['available']))
-            //     $available = 1;
-            // else
-            //     $available = 0;
+            $data = array(
+                'description'   => $_POST['description'],
+                'category'      => $_POST['category'],
+                'available'     => $available
+            );
 
-            // $data = array(
-            //     'description'   => $_POST['description'],
-            //     'category'      => $_POST['category'],
-            //     'available'     => $available
-            // );
-
-            // print_r($id);
-
-            // $this->product_model->updateProduct($data, $id);
+            $this->product_model->updateProduct($data, $id);
             
-            // header("location: ../product");
+            header("location: ../product/");
 
         }
 
