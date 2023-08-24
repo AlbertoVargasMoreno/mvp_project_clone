@@ -73,6 +73,9 @@
 
         public function destroy($id){
             // Eliminar un recurso
+            $this->product_model->destroyProduct($id);
+
+            header("location: ../../product/");
         }
         
     }

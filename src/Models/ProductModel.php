@@ -60,6 +60,12 @@
         // Elimina un recurso específico de la base de datos
         public function destroyProduct($id){
             
+            try{
+                $this->model_base->destroy('product', $id);
+            } catch (\PDOException $e) {
+                echo $e->getMessage();
+		    }
+
         }
 
         public function __destruct() {
