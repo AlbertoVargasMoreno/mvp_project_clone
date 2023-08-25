@@ -21,7 +21,6 @@
         public function index($table, $min_query){
 
             $sql = "SELECT * FROM $table $min_query ORDER BY id";
-            // echo $sql;
             $stmt = $this->connection->prepare($sql);
             $stmt->execute();
 
