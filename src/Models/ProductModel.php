@@ -15,10 +15,13 @@
         }
 
         // Muestra una lista de este recurso
-        public function indexProduct(){
+        public function indexProduct($min_query){
+
+            // description , posteriormente se debe evitar este hardcoding
+            $min_query = "WHERE description LIKE '%{$min_query}%'";
 
             try{
-                return $this->model_base->index('product');
+                return $this->model_base->index('product', $min_query);
             } catch (\PDOException $e) {
                 echo $e->getMessage();
 		    }

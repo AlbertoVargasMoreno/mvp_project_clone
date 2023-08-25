@@ -18,15 +18,17 @@
         }
 
         // Muestra una lista de este recurso
-        public function index($table){
+        public function index($table, $min_query){
 
-            $sql = "SELECT * FROM $table ORDER BY id";
+            $sql = "SELECT * FROM $table $min_query ORDER BY id";
+            // echo $sql;
             $stmt = $this->connection->prepare($sql);
             $stmt->execute();
 
             $results = $stmt->fetchAll(\PDO::FETCH_ASSOC);
 
             return $results;
+
         }
 
         // Muestra un único recurso especificado
