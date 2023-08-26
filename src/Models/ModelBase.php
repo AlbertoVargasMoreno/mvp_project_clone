@@ -18,11 +18,11 @@
         }
 
         // Muestra una lista de este recurso
-        public function index($table, $min_query){
+        public function index($table, $conditions = "", $query_params = []){
 
-            $sql = "SELECT * FROM $table $min_query ORDER BY id";
+            $sql = "SELECT * FROM $table $conditions ORDER BY id";
             $stmt = $this->connection->prepare($sql);
-            $stmt->execute();
+            $stmt->execute($query_params);
 
             $results = $stmt->fetchAll(\PDO::FETCH_ASSOC);
 

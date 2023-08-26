@@ -20,7 +20,7 @@
         public function auth($data){
 
             $data = array(
-                'email'     => $_POST['email'],
+                'email'     => filter_var($_POST['email'], FILTER_VALIDATE_EMAIL),
                 'password'  => $_POST['password']
             );
           

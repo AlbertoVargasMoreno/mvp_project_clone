@@ -18,7 +18,7 @@
             
             // $min_query -> hace referencia a minimizar la consulta desde la URL, para no traer a todos los registros
             $min_query = explode('?q=',$_SERVER['REQUEST_URI']);
-            $min_query = isset($min_query[1]) ? $min_query[1] : "";
+            $min_query = isset($min_query[1]) ? filter_var($min_query[1], FILTER_SANITIZE_FULL_SPECIAL_CHARS) : "";
 
             $results = $this->product_model->indexProduct($min_query);
             return view('product/index', $results);

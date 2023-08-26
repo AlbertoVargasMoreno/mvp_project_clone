@@ -18,10 +18,14 @@
         public function indexProduct($min_query){
 
             // description , posteriormente se debe evitar este hardcoding
-            $min_query = "WHERE description LIKE '%{$min_query}%'";
+            // $min_query = "WHERE description LIKE '%{$min_query}%'";
 
             try{
-                return $this->model_base->index('product', $min_query);
+
+                $conditions = $min_query !== null ? "WHERE description LIKE :min_query" : "";
+                $query_params = [ ':min_query' => "%$min_query%" ];
+
+                return $this->model_base->index('product', $conditions, $query_params);
             } catch (\PDOException $e) {
                 echo $e->getMessage();
 		    }
