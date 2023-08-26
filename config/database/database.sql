@@ -30,3 +30,6 @@ INSERT INTO `product` (`id`, `description`, `category`, `available`) VALUES
 (2, 'Mouse Sate A33 Optical', 'Informática', 0),
 (3, 'Speaker Logitech Z150', 'Informática', 0),
 (4, 'Samsung A22 5G', 'Celular', 1);
+
+INSERT INTO `user` (`id`, `name`, `email`, `password`) VALUES
+(1, 'Juan Perez', 'juan@email.com', '$2y$10$Y5nURn68OqootLoPjbau6egaqpr7Sy4edWglsu3ZguBsuww2tvt6m');

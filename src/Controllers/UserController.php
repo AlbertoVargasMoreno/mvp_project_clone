@@ -28,7 +28,8 @@
 
             if (count($results) == 1) {
 
-                if ($data['password'] == $results[0]['password']) {
+                if (password_verify($data['password'], $results[0]['password'])) {
+
                     session_start();
                     $_SESSION['name'] = $results[0]['name'];
                     $_SESSION['email'] = $results[0]['email'];
