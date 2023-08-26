@@ -7,7 +7,6 @@
     <title>MVP Project</title>
 </head>
 <body>
-    <h3>Template</h3>
     <?= $content; ?>
 </body>
 </html>

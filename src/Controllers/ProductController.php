@@ -10,7 +10,6 @@
 
         public function __construct() {
             $this->product_model = new ProductModel;
-
             session_start();
         }
 
@@ -27,33 +26,30 @@
 
         public function create(){
             
-            // Verificamos si existe una variable de sesión 'name'
-            if (isset($_SESSION['name'])){
-                return view('product/create', null);
-            } else {
-                header("location: ../user/login");
-                die();
-            }
+            // Verifica la autenticación
+            $this->checkAuthentication("../user/login");
+            
+            return view('product/create', null);
+            
         }
 
         public function show($id){
-            // Página con los detalles de un recurso
-            $results = $this->product_model->showProduct($id);
+            // Página con los detalles de un recurso, validación del parámetro $id que debe ser un entero
+            $results = $this->product_model->showProduct(filter_var($id, FILTER_VALIDATE_INT));
             return view('product/show', $results);
         }
 
         public function edit($id){
-            // Verificamos si existe una variable de sesión 'name'
-            if (isset($_SESSION['name'])){
-                $results = $this->product_model->showProduct($id);
-                return view('product/edit', $results);
-            } else {
-                header("location: ../../user/login");
-                die();
-            }
+            
+            $this->checkAuthentication("../../user/login");
+            
+            $results = $this->product_model->showProduct($id);
+            return view('product/edit', $results);
         }
 
         public function store($data){
+
+            $this->checkAuthentication("../user/login");
 
             if (isset($_POST['available']))
                 $available = 1;
@@ -73,8 +69,9 @@
 
         public function update($data){
 
-            $id = $_POST['id'];
+            $this->checkAuthentication("../user/login");
 
+            $id = $_POST['id'];
             if (isset($_POST['available']))
                 $available = 1;
             else
@@ -86,20 +83,24 @@
                 'available'     => $available
             );
 
-            $this->product_model->updateProduct($data, $id);
-            
+            $this->product_model->updateProduct($data, $id);            
             header("location: ../product/");
 
         }
 
         public function destroy($id){
-            // Verificamos si existe una variable de sesión 'name'
-            if (isset($_SESSION['name'])){
-                // Eliminar un recurso
-                $this->product_model->destroyProduct($id);
-                header("location: ../../product/");
-            } else {
-                header("location: ../../user/login");
+            // Verifica la autenticación
+            $this->checkAuthentication("../../user/login");
+            // Eliminar un recurso
+            $this->product_model->destroyProduct($id);
+            header("location: ../../product/");
+        }
+
+        private function checkAuthentication($path){
+            // Verifica si existen variables de sesión
+            if (!isset($_SESSION['name']) && !isset($_SESSION['email'])){
+                // $path representa la ruta al login dependiendo de donde es llamado esta función
+                header("location: $path");
                 die();
             }
         }

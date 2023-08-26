@@ -16,11 +16,12 @@
         // Muestra una lista de este recurso
         public function indexUserAuth($min_query){
 
-            // email , posteriormente se debe evitar este hardcoding
-            $min_query = "WHERE email = '{$min_query}'";
-            
             try{
-                return $this->model_base->index('user', $min_query);
+                $conditions = $min_query !== null ? "WHERE email = :min_query" : "";
+                $query_params = [ ':min_query' => "$min_query" ];
+
+                return $this->model_base->index('user', $conditions, $query_params);
+
             } catch (\PDOException $e) {
                 echo $e->getMessage();
 		    }
