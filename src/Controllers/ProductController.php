@@ -27,7 +27,7 @@
         public function create(){
             
             // Verifica la autenticación
-            $this->checkAuthentication("../user/login");
+            checkAuthentication("../user/login");
             
             return view('product/create', null);
             
@@ -41,7 +41,7 @@
 
         public function edit($id){
             
-            $this->checkAuthentication("../../user/login");
+            checkAuthentication("../../user/login");
             
             $results = $this->product_model->showProduct($id);
             return view('product/edit', $results);
@@ -49,7 +49,7 @@
 
         public function store($data){
 
-            $this->checkAuthentication("../user/login");
+            checkAuthentication("../user/login");
 
             if (isset($_POST['available']))
                 $available = 1;
@@ -69,7 +69,7 @@
 
         public function update($data){
 
-            $this->checkAuthentication("../user/login");
+            checkAuthentication("../user/login");
 
             $id = $_POST['id'];
             if (isset($_POST['available']))
@@ -90,19 +90,10 @@
 
         public function destroy($id){
             // Verifica la autenticación
-            $this->checkAuthentication("../../user/login");
+            checkAuthentication("../../user/login");
             // Eliminar un recurso
             $this->product_model->destroyProduct($id);
             header("location: ../../product/");
-        }
-
-        private function checkAuthentication($path){
-            // Verifica si existen variables de sesión
-            if (!isset($_SESSION['name']) && !isset($_SESSION['email'])){
-                // $path representa la ruta al login dependiendo de donde es llamado esta función
-                header("location: $path");
-                die();
-            }
         }
         
     }
