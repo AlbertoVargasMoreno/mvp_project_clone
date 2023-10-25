@@ -8,7 +8,6 @@
             "email": "humberto.viverosrios@gmail.com"
         }
     ],
-    "require": {},
     "autoload": {
         "psr-4": {
             "H2\\MvpProject\\": "src/",
@@ -18,5 +17,8 @@
         "files": [
             "src/helpers.php"
         ]
-    }    
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.4"
+    }
 }
