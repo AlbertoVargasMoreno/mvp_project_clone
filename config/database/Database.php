@@ -29,14 +29,18 @@
             return $this->connection;
         }
 
-        private function make_connection(){
-            
-            $hostname = '127.0.0.1'; //localhost
-            $database = 'mvp_project';
-            $username = 'root';
-            $password = '';
-
+        private function make_connection(){          
             try {
+                // read parameters in the ini configuration file
+                $params = parse_ini_file('database.ini');
+                if ($params === false) {
+                    throw new \Exception("Error reading database configuration file");
+                }
+                $hostname = $params['hostname'];
+                $database = $params['database'];
+                $username = $params['username'];
+                $password = $params['password'];
+
                 $dsn = "mysql:host=$hostname;dbname=$database";
                 $connection = new \PDO($dsn, $username, $password, array(\PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
                 
