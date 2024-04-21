@@ -1,5 +1,9 @@
 # vendor
 /vendor/
 
+# credentials
+config/database/database.ini
+
 # vscode work area
 mvp_project.code-workspace
+.vscode/
