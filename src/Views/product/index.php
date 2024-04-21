@@ -7,8 +7,16 @@
 </form>
 
 <ul>
-    <?php foreach($data as $product): ?>
-        <li><?= $product["description"] ?> | <a href='./show/<?= $product["id"] ?>'>Detalle</a> | <a href='./edit/<?= $product["id"] ?>'>Editar</a> | <a href='./destroy/<?= $product["id"] ?>'>Eliminar</a> </li>
+    <?php
+    foreach($data as $product):
+      $sanitizedDesciption = htmlspecialchars($product["description"], ENT_QUOTES);
+    ?>
+        <li>
+          <?= $sanitizedDesciption ?>
+          | <a href='./show/<?= $product["id"] ?>'>Detalle</a>
+          | <a href='./edit/<?= $product["id"] ?>'>Editar</a>
+          | <a href='./destroy/<?= $product["id"] ?>'>Eliminar</a>
+        </li>
     <?php endforeach; ?>
 </ul>
 
