@@ -23,3 +23,36 @@ Este proyecto es un sistema básico de CRUD (Crear, Leer, Actualizar, Eliminar) 
 4. Acceder al proyecto desde el navegador.
 
 > ¡Este sistema proporciona una base para desarrollar aplicaciones más completas!
+
+## Agregar PHPUnit
+
+Para integrar PHPUnit en el proyecto, sigue estos pasos:
+
+1. **Instalación de PHPUnit:**
+   Ejecuta el siguiente comando en la terminal para instalar PHPUnit como una dependencia de desarrollo:
+
+   ```shell
+   $ composer require --dev phpunit/phpunit
+   ```
+
+2. **Ejecución de Pruebas:**
+   Para ejecutar todas las pruebas, utiliza el siguiente comando:
+
+   ```shell
+   $ ./vendor/bin/phpunit tests
+   ```
+
+3. **Generación de Informe de Pruebas:**
+   Si deseas generar un informe detallado de las pruebas realizadas utiliza el siguiente comando:
+
+   ```shell
+   $ ./vendor/bin/phpunit --testdox tests/UserTest.php
+   ```
+
+## Referencias
+
+- Tutorial de Freecodecamp. [1]
+- Documentación oficial de PHPUnit. [2]
+
+[1]: https://www.freecodecamp.org/news/test-php-code-with-phpunit/
+[2]: https://phpunit.de/getting-started/phpunit-10.html
