@@ -54,7 +54,38 @@ Configurar Apache para usar archivos `.htaccess` es fundamental para el correcto
 - https://github.com/davidhartsough/you-dont-need-bootstrap/blob/master/normalize.slim.css
 - https://github.com/necolas/normalize.css/blob/master/normalize.css
 
+## Agregar PHPUnit
+
+Para integrar PHPUnit en el proyecto, sigue estos pasos:
+
+1. **Instalación de PHPUnit:**
+   Ejecuta el siguiente comando en la terminal para instalar PHPUnit como una dependencia de desarrollo:
+
+   ```shell
+   $ composer require --dev phpunit/phpunit
+   ```
+
+2. **Ejecución de Pruebas:**
+   Para ejecutar todas las pruebas, utiliza el siguiente comando:
+
+   ```shell
+   $ ./vendor/bin/phpunit tests
+   ```
+
+3. **Generación de Informe de Pruebas:**
+   Si deseas generar un informe detallado de las pruebas realizadas utiliza el siguiente comando:
+
+   ```shell
+   $ ./vendor/bin/phpunit --testdox tests/UserTest.php
+   ```
+
+### Referencias
+
+- Tutorial de Freecodecamp. [1]
+- Documentación oficial de PHPUnit. [2]
 
 [PSR-4]:https://www.php-fig.org/psr/psr-4/
 [funcionamiento]:https://stackoverflow.com/questions/65417541/apache-doesnt-seem-to-be-detecting-my-htaccess-file
 [como_configurar_apache]:https://bootcampdeveloper.com/htaccess-configuracion-redirecciones-https-dominio/
+[1]: https://www.freecodecamp.org/news/test-php-code-with-phpunit/
+[2]: https://phpunit.de/getting-started/phpunit-10.html
