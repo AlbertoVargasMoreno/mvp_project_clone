@@ -57,8 +57,8 @@
                 $available = 0;
 
             $data = array(
-                'description'   => $_POST['description'],
-                'category'      => $_POST['category'],
+                'description'   => filter_var($_POST['description'], FILTER_SANITIZE_SPECIAL_CHARS),
+                'category'      => filter_var($_POST['category'], FILTER_SANITIZE_SPECIAL_CHARS),
                 'available'     => $available
             );
 
@@ -78,8 +78,8 @@
                 $available = 0;
 
             $data = array(
-                'description'   => $_POST['description'],
-                'category'      => $_POST['category'],
+                'description'   => filter_var($_POST['description'], FILTER_SANITIZE_SPECIAL_CHARS),
+                'category'      => filter_var($_POST['category'], FILTER_SANITIZE_SPECIAL_CHARS),
                 'available'     => $available
             );
 
