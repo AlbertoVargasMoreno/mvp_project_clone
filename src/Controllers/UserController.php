@@ -30,9 +30,12 @@
 
                 if (password_verify($data['password'], $results[0]['password'])) {
 
+                    $escaped_user["name"]   = htmlspecialchars($results[0]["name"], ENT_QUOTES, 'UTF-8');
+                    $escaped_user["email"]  = htmlspecialchars($results[0]["email"], ENT_QUOTES, 'UTF-8');
+
                     session_start();
-                    $_SESSION['name'] = $results[0]['name'];
-                    $_SESSION['email'] = $results[0]['email'];
+                    $_SESSION['name']   = $escaped_user['name'];
+                    $_SESSION['email']  = $escaped_user['email'];
                     
                     header("location: ../");
                     die();
