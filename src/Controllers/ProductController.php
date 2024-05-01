@@ -20,7 +20,14 @@
             $min_query = isset($min_query[1]) ? filter_var($min_query[1], FILTER_SANITIZE_FULL_SPECIAL_CHARS) : "";
 
             $results = $this->product_model->indexProduct($min_query);
-            return view('product/index', $results);
+            $escaped_products = [];
+            foreach($results as $index => $product) {
+                $escaped_products[$index]["id"]             = htmlspecialchars(intval($product["id"]), ENT_QUOTES, 'UTF-8');
+                $escaped_products[$index]["description"]    = htmlspecialchars($product["description"], ENT_QUOTES, 'UTF-8');
+                $escaped_products[$index]["category"]       = htmlspecialchars($product["category"], ENT_QUOTES, 'UTF-8');
+                $escaped_products[$index]["available"]      = htmlspecialchars(intval($product["available"]), ENT_QUOTES, 'UTF-8');
+            }
+            return view('product/index', $escaped_products);
 
         }
 
@@ -36,7 +43,13 @@
         public function show($id){
             // Página con los detalles de un recurso, validación del parámetro $id que debe ser un entero
             $results = $this->product_model->showProduct(filter_var($id, FILTER_VALIDATE_INT));
-            return view('product/show', $results);
+
+            $escaped_product["id"]             = htmlspecialchars(intval($results["id"]), ENT_QUOTES, 'UTF-8');
+            $escaped_product["description"]    = htmlspecialchars($results["description"], ENT_QUOTES, 'UTF-8');
+            $escaped_product["category"]       = htmlspecialchars($results["category"], ENT_QUOTES, 'UTF-8');
+            $escaped_product["available"]      = htmlspecialchars(intval($results["available"]), ENT_QUOTES, 'UTF-8');
+
+            return view('product/show', $escaped_product);
         }
 
         public function edit($id){
@@ -44,7 +57,13 @@
             checkAuthentication("../../user/login");
             
             $results = $this->product_model->showProduct($id);
-            return view('product/edit', $results);
+
+            $escaped_product["id"]             = htmlspecialchars(intval($results["id"]), ENT_QUOTES, 'UTF-8');
+            $escaped_product["description"]    = htmlspecialchars($results["description"], ENT_QUOTES, 'UTF-8');
+            $escaped_product["category"]       = htmlspecialchars($results["category"], ENT_QUOTES, 'UTF-8');
+            $escaped_product["available"]      = htmlspecialchars(intval($results["available"]), ENT_QUOTES, 'UTF-8');
+
+            return view('product/edit', $escaped_product);
         }
 
         public function store($data){

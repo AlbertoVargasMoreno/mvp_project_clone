@@ -1,8 +1,3 @@
-<?php
-$sanitizedDesciption = htmlspecialchars($data["description"], ENT_QUOTES);
-$sanitizedCategory = htmlspecialchars($data["category"], ENT_QUOTES);
-?>
-
 <h3>Edit</h3>
 <p>A form for edit an existence resource</p> 
 
@@ -12,12 +7,12 @@ $sanitizedCategory = htmlspecialchars($data["category"], ENT_QUOTES);
 
     <div class="input-group">
         <label for="description">Description</label>
-        <input type="text" name="description" id="description" value="<?= $sanitizedDesciption ?>">
+        <input type="text" name="description" id="description" value="<?= $data["description"] ?>">
     </div>
 
     <div class="input-group">
         <label for="category">Category</label>
-        <input type="text" name="category" id="category" value="<?= $sanitizedCategory ?>">
+        <input type="text" name="category" id="category" value="<?= $data["category"] ?>">
     </div>
 
     <div class="input-group">
