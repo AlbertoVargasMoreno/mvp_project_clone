@@ -13,7 +13,7 @@ Este proyecto es un sistema básico de CRUD (Crear, Leer, Actualizar, Eliminar) 
 
 ## Próximas Mejoras
 - **Estilo CSS:** Mejorar la apariencia visual.
-- **Validación y Sanitización:** Prevenir datos incorrectos.
+- **(En Proceso) Validación y Sanitización:** Prevenir datos incorrectos.
 - **Mejoras de Seguridad:** Aunque las contraseñas se almacenan de manera segura utilizando funciones de hash, se pueden implementar medidas adicionales de seguridad, como la autenticación en dos pasos.
 
 ## Pre-requisitos
