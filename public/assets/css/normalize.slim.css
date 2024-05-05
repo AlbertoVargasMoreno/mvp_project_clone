@@ -1,7 +1,6 @@
 /* Intuitive box sizing */
 html {
   box-sizing: border-box;
-  color: red;
 }
 *,
 *:before,
