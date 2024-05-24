@@ -1,4 +1,5 @@
 <section>
+  <a href="../">« Home</a>
   <h1>Productos</h1>
   <p>A list from all resources</p>
   
@@ -21,7 +22,9 @@
   <!-- src="https://loremflickr.com/320/180/gadget?random=2"  -->
   <!-- src="https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" -->
   
+<div class="flex container-create-btn">
   <a href="./create" class="button primary round icon-button expand-button">+ Nuevo producto</a>
+</div>
 </section>
 
 <section class="cards">
@@ -42,4 +45,3 @@
     <?php endforeach; ?>
 </section>
 
-<a href="../">« Home</a>

@@ -29,3 +29,12 @@ section {
 /* .expand-button:hover {
     max-width: 160px;
 } */
+
+.flex {
+    display: flex;
+    flex: 1;
+}
+
+.container-create-btn {
+    justify-content: end;
+}
