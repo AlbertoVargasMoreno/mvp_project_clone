@@ -1,3 +1,4 @@
+<a href="../">« Volver</a>
 <h3>Edit</h3>
 <p>A form for edit an existence resource</p> 
 
@@ -25,5 +26,3 @@
     </div>
 
 </form>
-
-<a href="../">« Volver</a>
