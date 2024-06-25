@@ -1,3 +1,4 @@
+<a href="./">« Volver</a>
 <h1>Create</h1>
 <p>A form for add a new resource</p> 
 
@@ -23,5 +24,3 @@
     </div>
 
 </form>
-
-<a href="./">« Volver</a>

@@ -1,3 +1,4 @@
+<a href="../">« Volver</a>
 <h1>Show</h1>
 <p>Detail from the resource</p> 
 
@@ -7,5 +8,3 @@
     <li><?= $data["category"] ?></li>
     <li><?= $data["available"] ?></li>
 </ul>
-
-<a href="../">« Volver</a>
