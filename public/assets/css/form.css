@@ -1,4 +1,7 @@
 /* Forms */
+form {
+  padding: 0 2rem;
+}
 label {
   display: block;
   margin: 0.75rem 0;

@@ -1,4 +1,4 @@
-<section>
+<header>
   <a href="../">« Home</a>
   <h1>Productos</h1>
   <p>A list from all resources</p>
@@ -12,7 +12,7 @@
 <div class="flex container-create-btn">
   <a href="./create" class="button primary round icon-button expand-button">+ Nuevo producto</a>
 </div>
-</section>
+</header>
 
 <section class="cards">
     <?php foreach($data as $product): ?>
