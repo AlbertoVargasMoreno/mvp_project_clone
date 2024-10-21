@@ -2,7 +2,9 @@
 <header>
     <h1>Página Home</h1>
     <?php if (isset($_SESSION['name'])): ?>
-    <p>Bienvenid@ <?= $_SESSION['name']; ?></p>
+        <section>
+            <h4>Bienvenid@ <?= $_SESSION['name']; ?></h4>
+        </section>
     <?php endif; ?>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam numquam voluptates deleniti molestias quas facilis laboriosam quisquam tempora dolor autem!</p>
 </header>
