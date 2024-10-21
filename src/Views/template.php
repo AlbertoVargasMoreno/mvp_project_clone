@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="http://<?=$serverHost;?>/mvp_project/public/assets/css/card.css">
     <link rel="stylesheet" href="http://<?=$serverHost;?>/mvp_project/public/assets/css/button.css">
     <link rel="stylesheet" href="http://<?=$serverHost;?>/mvp_project/public/assets/css/index.css">
+    <link rel="stylesheet" href="http://<?=$serverHost;?>/mvp_project/public/assets/css/media_small.css">
 </head>
 <body>
     <main>

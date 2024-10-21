@@ -9,7 +9,7 @@
   </form>
   -->
   
-<div class="flex container-create-btn">
+<div id="new-product" class="flex container-create-btn">
   <a href="./create" class="button primary round icon-button expand-button">+ Nuevo producto</a>
 </div>
 </header>
