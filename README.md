@@ -12,7 +12,6 @@ Este proyecto es un sistema básico de CRUD (Crear, Leer, Actualizar, Eliminar) 
 
 
 ## Próximas Mejoras
-- **Estilo CSS:** Mejorar la apariencia visual.
 - **(En Proceso) Validación y Sanitización:** Prevenir datos incorrectos.
 - **Mejoras de Seguridad:** Aunque las contraseñas se almacenan de manera segura utilizando funciones de hash, se pueden implementar medidas adicionales de seguridad, como la autenticación en dos pasos.
 
@@ -49,6 +48,12 @@ Configurar Apache para usar archivos `.htaccess` es fundamental para el correcto
 [localhost/mvp_project/public](http://localhost/mvp_project/public)
 
 > ¡Este sistema proporciona una base para desarrollar aplicaciones más completas!
+
+## Reconocimientos
+
+- https://github.com/davidhartsough/you-dont-need-bootstrap/blob/master/normalize.slim.css
+- https://github.com/necolas/normalize.css/blob/master/normalize.css
+
 
 [PSR-4]:https://www.php-fig.org/psr/psr-4/
 [funcionamiento]:https://stackoverflow.com/questions/65417541/apache-doesnt-seem-to-be-detecting-my-htaccess-file
