@@ -77,6 +77,9 @@ Para integrar PHPUnit en el proyecto, sigue estos pasos:
 
    ```shell
    $ ./vendor/bin/phpunit --testdox tests/UserTest.php
+
+   $ ./vendor/bin/phpunit --testdox tests/Unit/Controllers/UserControllerTest.php --filter testAuthWithValidCredentials
+
    ```
 
 ### Referencias
